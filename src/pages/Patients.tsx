@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Search, Plus, Filter, Phone, Mail, Calendar, ChevronRight, User } from 'lucide-react';
 import { patients, payers, referralSources, authorizations, treatmentPlans } from '../data/mockData';
 import { PatientStatus } from '../types';
