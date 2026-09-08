@@ -1,4 +1,5 @@
-import { Settings, Users, Shield, Building, Bell, Database, Key } from 'lucide-react';
+import { Settings, Users, Shield, Building, Bell, Database, Key, Lock, Crown, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { organization, users } from '../data/mockData';
 
 export default function SettingsPage() {
@@ -114,6 +115,45 @@ export default function SettingsPage() {
                     Audit logging: Active
                   </span>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Pro Features - Paywall Gated */}
+          <div className="bg-white rounded-xl border border-gray-200 p-6 relative overflow-hidden">
+            <div className="flex items-center gap-2 mb-4">
+              <Crown className="h-5 w-5 text-purple-600" />
+              <h2 className="text-lg font-semibold text-gray-900">Pro Features</h2>
+              <span className="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-200 uppercase">Pro Plan</span>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 opacity-50">
+              <div className="p-3 border border-gray-200 rounded-lg">
+                <p className="text-sm font-medium text-gray-700">Multiple Locations</p>
+                <p className="text-xs text-gray-500 mt-0.5">Manage clinics across different addresses</p>
+              </div>
+              <div className="p-3 border border-gray-200 rounded-lg">
+                <p className="text-sm font-medium text-gray-700">API Access</p>
+                <p className="text-xs text-gray-500 mt-0.5">REST API for custom integrations</p>
+              </div>
+              <div className="p-3 border border-gray-200 rounded-lg">
+                <p className="text-sm font-medium text-gray-700">Advanced Permissions</p>
+                <p className="text-xs text-gray-500 mt-0.5">Granular capability-based access control</p>
+              </div>
+              <div className="p-3 border border-gray-200 rounded-lg">
+                <p className="text-sm font-medium text-gray-700">Calendar Sync</p>
+                <p className="text-xs text-gray-500 mt-0.5">Google & Outlook calendar integration</p>
+              </div>
+            </div>
+
+            <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px] flex items-center justify-center">
+              <div className="text-center p-6">
+                <Lock className="h-8 w-8 text-purple-500 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-gray-900">Upgrade to Pro</p>
+                <p className="text-xs text-gray-500 mb-3">Unlock multi-location, API access & more</p>
+                <Link to="/pricing" className="inline-flex items-center gap-1.5 px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors">
+                  View Pro Plan <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link2, Phone, Mail, Calendar, AlertTriangle, Users, Plus, ExternalLink } from 'lucide-react';
 import { referralSources } from '../data/mockData';
 import { ReferralSourceType } from '../types';
+import PremiumPageGate from '../components/PremiumPageGate';
 
 function getSourceTypeColor(type: ReferralSourceType) {
   switch (type) {
@@ -24,6 +25,11 @@ export default function Referrals() {
   const needsFollowUp = referralSources.filter(r => r.needsFollowUp).length;
 
   return (
+    <PremiumPageGate
+      featureName="Referral Management"
+      featureDescription="Build and maintain referral relationships. Track referral volume, follow-up schedules, and source performance over time."
+      requiredPlan="practice"
+    >
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -213,5 +219,6 @@ export default function Referrals() {
         </div>
       </div>
     </div>
+    </PremiumPageGate>
   );
 }

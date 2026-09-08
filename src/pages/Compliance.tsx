@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CheckCircle, AlertTriangle, Clock, ClipboardCheck, FileText, Shield, Plus } from 'lucide-react';
+import PremiumPageGate from '../components/PremiumPageGate';
 
 interface AuditItem {
   id: string;
@@ -60,6 +61,11 @@ export default function Compliance() {
   const categories = [...new Set(auditItems.map(i => i.category))];
 
   return (
+    <PremiumPageGate
+      featureName="Compliance Audits"
+      featureDescription="Run periodic internal documentation checks. Track timeliness, signature compliance, medical necessity, and plan-of-care certification."
+      requiredPlan="practice"
+    >
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -202,5 +208,6 @@ export default function Compliance() {
         ))}
       </div>
     </div>
+    </PremiumPageGate>
   );
 }

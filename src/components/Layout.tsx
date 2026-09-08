@@ -207,8 +207,26 @@ function SidebarContent({ currentPath, onClose }: { currentPath: string; onClose
         })}
       </nav>
 
+      {/* Upgrade banner */}
+      <div className="px-3 pb-3">
+        <Link to="/pricing" className="block p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-200 hover:border-blue-300 transition-colors">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">Solo Plan</span>
+            <span className="px-1.5 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded">ACTIVE</span>
+          </div>
+          <p className="text-xs text-blue-600/80 leading-snug">Unlock claims, referrals & compliance tools</p>
+          <div className="flex items-center gap-1 mt-1.5 text-xs font-semibold text-blue-700">
+            Upgrade plan <ChevronDown className="h-3 w-3 -rotate-90" />
+          </div>
+        </Link>
+      </div>
+
       {/* Bottom section */}
       <div className="border-t border-gray-100 px-3 py-4 space-y-1">
+        <Link to="/pricing" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
+          <Settings className="h-5 w-5 text-gray-400" />
+          Pricing & Plans
+        </Link>
         <Link to="/settings" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors">
           <Settings className="h-5 w-5 text-gray-400" />
           Settings

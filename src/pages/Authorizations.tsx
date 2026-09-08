@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Shield, AlertTriangle, CheckCircle, Clock, Filter, Download, UserCheck, Bell } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Shield, AlertTriangle, CheckCircle, Clock, Filter, Download, UserCheck, Bell, Lock, Crown, ArrowRight, Zap } from 'lucide-react';
 import { authorizations, patients, payers, users } from '../data/mockData';
 import { AuthAlertStatus } from '../types';
 
@@ -268,6 +269,47 @@ export default function Authorizations() {
               })}
             </tbody>
           </table>
+        </div>
+      </div>
+
+      {/* Practice Feature: Bulk Actions & Automation */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6 relative overflow-hidden">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Zap className="h-5 w-5 text-gray-400" />
+            <h2 className="text-base font-semibold text-gray-900">Bulk Actions & Automation</h2>
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-200 uppercase">Practice Plan</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 opacity-40">
+          <div className="p-3 border border-gray-200 rounded-lg">
+            <p className="text-sm font-medium text-gray-700">Bulk Re-auth Request</p>
+            <p className="text-xs text-gray-500 mt-0.5">Submit multiple at once</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg">
+            <p className="text-sm font-medium text-gray-700">Auto-assign Staff</p>
+            <p className="text-xs text-gray-500 mt-0.5">Route by workload</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg">
+            <p className="text-sm font-medium text-gray-700">Export Worklist</p>
+            <p className="text-xs text-gray-500 mt-0.5">CSV/PDF export</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg">
+            <p className="text-sm font-medium text-gray-700">Auto Reminders</p>
+            <p className="text-xs text-gray-500 mt-0.5">Staff notifications</p>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px] flex items-center justify-center">
+          <div className="text-center p-6">
+            <Lock className="h-8 w-8 text-emerald-500 mx-auto mb-2" />
+            <p className="text-sm font-semibold text-gray-900">Bulk Actions & Automation</p>
+            <p className="text-xs text-gray-500 mb-3">Streamline authorization management at scale</p>
+            <Link to="/pricing" className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors">
+              Upgrade to Practice <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

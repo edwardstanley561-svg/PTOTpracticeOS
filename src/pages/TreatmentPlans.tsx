@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ClipboardList, Calendar, Target, AlertTriangle, Plus, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ClipboardList, Calendar, Target, AlertTriangle, Plus, Clock, Lock, Crown, ArrowRight, TrendingUp } from 'lucide-react';
 import { treatmentPlans, patients, users } from '../data/mockData';
 import { PlanStatus } from '../types';
 
@@ -173,6 +174,47 @@ export default function TreatmentPlans() {
               </div>
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Pro Feature: Goal Tracking & Progress Reports */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6 relative overflow-hidden">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <TrendingUp className="h-5 w-5 text-gray-400" />
+            <h2 className="text-base font-semibold text-gray-900">Goal Tracking & Progress Reports</h2>
+            <span className="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-200 uppercase">Pro Plan</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 opacity-40">
+          <div className="p-3 border border-gray-200 rounded-lg text-center">
+            <p className="text-lg font-bold text-gray-700">87%</p>
+            <p className="text-xs text-gray-500">Goal Achievement Rate</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg text-center">
+            <p className="text-lg font-bold text-gray-700">12.4</p>
+            <p className="text-xs text-gray-500">Avg. Sessions to Goal</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg text-center">
+            <p className="text-lg font-bold text-gray-700">4.2</p>
+            <p className="text-xs text-gray-500">Avg. Pain Reduction</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg text-center">
+            <p className="text-lg font-bold text-gray-700">92%</p>
+            <p className="text-xs text-gray-500">Patient Satisfaction</p>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px] flex items-center justify-center">
+          <div className="text-center p-6">
+            <Lock className="h-8 w-8 text-purple-500 mx-auto mb-2" />
+            <p className="text-sm font-semibold text-gray-900">Goal Tracking & Outcomes</p>
+            <p className="text-xs text-gray-500 mb-3">Measure progress, track outcomes, generate reports</p>
+            <Link to="/pricing" className="inline-flex items-center gap-1.5 px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors">
+              Upgrade to Pro <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

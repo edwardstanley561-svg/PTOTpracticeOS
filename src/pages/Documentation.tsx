@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FileText, Pen, CheckCircle, Clock, AlertCircle, Plus, Eye } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { FileText, Pen, CheckCircle, Clock, AlertCircle, Plus, Eye, Lock, Building2, ArrowRight } from 'lucide-react';
 import { clinicalNotes, patients, users } from '../data/mockData';
 import { NoteStatus, NoteType } from '../types';
 
@@ -176,6 +177,43 @@ export default function Documentation() {
               </div>
             </div>
           )}
+        </div>
+      </div>
+
+      {/* HEP Handouts - Paywall Gated */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6 relative overflow-hidden">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <FileText className="h-5 w-5 text-gray-400" />
+            <h2 className="text-base font-semibold text-gray-900">Home Exercise Program (HEP) Handouts</h2>
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-200 uppercase">Practice Plan</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 opacity-40">
+          <div className="p-3 border border-gray-200 rounded-lg">
+            <p className="text-sm font-medium text-gray-700">Shoulder ROM Exercises</p>
+            <p className="text-xs text-gray-500 mt-0.5">3 sets × 10 reps • Daily</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg">
+            <p className="text-sm font-medium text-gray-700">Core Stabilization</p>
+            <p className="text-xs text-gray-500 mt-0.5">2 sets × 15 reps • 3x/week</p>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg">
+            <p className="text-sm font-medium text-gray-700">Balance Training</p>
+            <p className="text-xs text-gray-500 mt-0.5">Single-leg stance • Daily</p>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px] flex items-center justify-center">
+          <div className="text-center p-6">
+            <Lock className="h-8 w-8 text-emerald-500 mx-auto mb-2" />
+            <p className="text-sm font-semibold text-gray-900">HEP Handouts</p>
+            <p className="text-xs text-gray-500 mb-3">Create branded exercise handouts for patients</p>
+            <Link to="/pricing" className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors">
+              Upgrade to Practice <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

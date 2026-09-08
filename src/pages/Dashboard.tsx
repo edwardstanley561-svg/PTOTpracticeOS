@@ -1,6 +1,7 @@
 import { 
   Calendar, AlertTriangle, Clock, FileWarning, ClipboardCheck,
-  TrendingUp, Users, CheckCircle2, XCircle, ArrowRight, Shield
+  TrendingUp, Users, CheckCircle2, XCircle, ArrowRight, Shield,
+  DollarSign, Lock
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { patients, appointments, authorizations, claims, clinicalNotes, treatmentPlans, users, payers } from '../data/mockData';
@@ -299,6 +300,158 @@ export default function Dashboard() {
           </div>
         </div>
       )}
+
+      {/* Paywall: Premium Features Preview */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Paywall: Claims Overview */}
+        <Link to="/pricing" className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all">
+          <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <DollarSign className="h-5 w-5 text-gray-400" />
+              <h2 className="text-base font-semibold text-gray-900">Claims Status</h2>
+            </div>
+            <span className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-200 uppercase">Practice Plan</span>
+          </div>
+          <div className="p-5 relative">
+            <div className="blur-sm opacity-50 space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="h-3 bg-gray-200 rounded w-24" />
+                <div className="h-3 bg-green-200 rounded w-12" />
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="h-3 bg-gray-200 rounded w-20" />
+                <div className="h-3 bg-blue-200 rounded w-16" />
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="h-3 bg-gray-200 rounded w-28" />
+                <div className="h-3 bg-red-200 rounded w-10" />
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="h-3 bg-gray-200 rounded w-16" />
+                <div className="h-3 bg-purple-200 rounded w-14" />
+              </div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center bg-white/60">
+              <div className="text-center">
+                <Lock className="h-8 w-8 text-amber-500 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-gray-900">Upgrade to Practice</p>
+                <p className="text-xs text-gray-500">Track claims, denials & appeals</p>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        {/* Paywall: Referral Relationships */}
+        <Link to="/pricing" className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all">
+          <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Users className="h-5 w-5 text-gray-400" />
+              <h2 className="text-base font-semibold text-gray-900">Referral Network</h2>
+            </div>
+            <span className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-200 uppercase">Practice Plan</span>
+          </div>
+          <div className="p-5 relative">
+            <div className="blur-sm opacity-50 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-blue-100 rounded-full" />
+                <div className="flex-1">
+                  <div className="h-3 bg-gray-200 rounded w-32" />
+                  <div className="h-2 bg-gray-100 rounded w-20 mt-1" />
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-purple-100 rounded-full" />
+                <div className="flex-1">
+                  <div className="h-3 bg-gray-200 rounded w-28" />
+                  <div className="h-2 bg-gray-100 rounded w-24 mt-1" />
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-green-100 rounded-full" />
+                <div className="flex-1">
+                  <div className="h-3 bg-gray-200 rounded w-36" />
+                  <div className="h-2 bg-gray-100 rounded w-16 mt-1" />
+                </div>
+              </div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center bg-white/60">
+              <div className="text-center">
+                <Lock className="h-8 w-8 text-amber-500 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-gray-900">Upgrade to Practice</p>
+                <p className="text-xs text-gray-500">Manage referral relationships</p>
+              </div>
+            </div>
+          </div>
+        </Link>
+
+        {/* Paywall: Compliance Score */}
+        <Link to="/pricing" className="group relative bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-all">
+          <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5 text-gray-400" />
+              <h2 className="text-base font-semibold text-gray-900">Compliance Score</h2>
+            </div>
+            <span className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-200 uppercase">Practice Plan</span>
+          </div>
+          <div className="p-5 relative">
+            <div className="blur-sm opacity-50 space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
+                  <div className="h-3 bg-emerald-300 rounded w-4" />
+                </div>
+                <div className="flex-1">
+                  <div className="h-3 bg-gray-200 rounded w-40" />
+                  <div className="h-2 bg-gray-100 rounded w-28 mt-1" />
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <div className="h-3 bg-yellow-300 rounded w-4" />
+                </div>
+                <div className="flex-1">
+                  <div className="h-3 bg-gray-200 rounded w-36" />
+                  <div className="h-2 bg-gray-100 rounded w-20 mt-1" />
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="h-3 bg-green-300 rounded w-4" />
+                </div>
+                <div className="flex-1">
+                  <div className="h-3 bg-gray-200 rounded w-32" />
+                  <div className="h-2 bg-gray-100 rounded w-24 mt-1" />
+                </div>
+              </div>
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center bg-white/60">
+              <div className="text-center">
+                <Lock className="h-8 w-8 text-amber-500 mx-auto mb-2" />
+                <p className="text-sm font-semibold text-gray-900">Upgrade to Practice</p>
+                <p className="text-xs text-gray-500">Run compliance audits</p>
+              </div>
+            </div>
+          </div>
+        </Link>
+      </div>
+
+      {/* Upgrade CTA Banner */}
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="text-center sm:text-left">
+          <h3 className="text-lg font-bold text-white flex items-center gap-2 justify-center sm:justify-start">
+            <TrendingUp className="h-5 w-5" />
+            Ready to grow your practice?
+          </h3>
+          <p className="text-blue-100 text-sm mt-1">
+            Unlock claims tracking, referral management, compliance audits, and team collaboration.
+          </p>
+        </div>
+        <Link 
+          to="/pricing" 
+          className="shrink-0 px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg hover:bg-blue-50 transition-colors text-sm flex items-center gap-2"
+        >
+          View Plans <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
     </div>
   );
 }

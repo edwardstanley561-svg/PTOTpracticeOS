@@ -10,6 +10,7 @@ import Claims from './pages/Claims';
 import Referrals from './pages/Referrals';
 import Compliance from './pages/Compliance';
 import SettingsPage from './pages/Settings';
+import Pricing from './pages/Pricing';
 
 export default function App() {
   return (
@@ -26,8 +27,9 @@ export default function App() {
           <Route path="/referrals" element={<Referrals />} />
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/pricing" element={<Pricing />} />
         </Routes>
       </Layout>
-      </HashRouter>
+    </HashRouter>
   );
 }

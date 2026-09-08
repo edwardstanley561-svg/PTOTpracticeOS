@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Clock, User, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, Clock, User, Plus, Lock, Crown, ArrowRight, Calendar } from 'lucide-react';
 import { appointments, patients, users } from '../data/mockData';
 import { AppointmentStatus } from '../types';
 
@@ -186,6 +187,58 @@ export default function Schedule() {
         <div className="bg-white rounded-xl border border-gray-200 p-4">
           <p className="text-2xl font-bold text-red-600">{dayAppointments.filter(a => a.status === 'NO_SHOW').length}</p>
           <p className="text-sm text-gray-500">No-Shows</p>
+        </div>
+      </div>
+
+      {/* Pro Feature: Calendar Sync & Recurring Schedules */}
+      <div className="bg-white rounded-xl border border-gray-200 p-6 relative overflow-hidden">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <Calendar className="h-5 w-5 text-gray-400" />
+            <h2 className="text-base font-semibold text-gray-900">Calendar Sync & Recurring Schedules</h2>
+            <span className="text-[10px] font-bold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full border border-purple-200 uppercase">Pro Plan</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 opacity-40">
+          <div className="p-3 border border-gray-200 rounded-lg flex items-center gap-3">
+            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+              <Calendar className="h-4 w-4 text-blue-600" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-700">Google Calendar</p>
+              <p className="text-xs text-gray-500">Two-way sync</p>
+            </div>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg flex items-center gap-3">
+            <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+              <Calendar className="h-4 w-4 text-indigo-600" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-700">Outlook Calendar</p>
+              <p className="text-xs text-gray-500">Two-way sync</p>
+            </div>
+          </div>
+          <div className="p-3 border border-gray-200 rounded-lg flex items-center gap-3">
+            <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+              <Clock className="h-4 w-4 text-green-600" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-gray-700">Recurring Templates</p>
+              <p className="text-xs text-gray-500">iCal RRULE support</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px] flex items-center justify-center">
+          <div className="text-center p-6">
+            <Lock className="h-8 w-8 text-purple-500 mx-auto mb-2" />
+            <p className="text-sm font-semibold text-gray-900">Calendar Sync & Recurring Schedules</p>
+            <p className="text-xs text-gray-500 mb-3">Sync with Google/Outlook, set recurring patterns</p>
+            <Link to="/pricing" className="inline-flex items-center gap-1.5 px-4 py-2 bg-purple-600 text-white text-sm font-semibold rounded-lg hover:bg-purple-700 transition-colors">
+              Upgrade to Pro <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

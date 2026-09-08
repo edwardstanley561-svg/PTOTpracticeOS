@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { DollarSign, AlertTriangle, CheckCircle, Clock, Plus, ArrowUpRight } from 'lucide-react';
 import { claims, patients, payers } from '../data/mockData';
 import { ClaimStatus } from '../types';
+import PremiumPageGate from '../components/PremiumPageGate';
 
 function getPatientName(id: string) {
   const p = patients.find(p => p.id === id);
@@ -37,6 +38,11 @@ export default function Claims() {
   const outstandingCount = claims.filter(c => c.status !== 'PAID' && c.status !== 'WRITTEN_OFF').length;
 
   return (
+    <PremiumPageGate
+      featureName="Claims Tracking"
+      featureDescription="Monitor submitted, paid, denied, and appealed claims. Track follow-up dates and manage denials with automated alerts."
+      requiredPlan="practice"
+    >
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -179,5 +185,6 @@ export default function Claims() {
         </div>
       </div>
     </div>
+    </PremiumPageGate>
   );
 }
